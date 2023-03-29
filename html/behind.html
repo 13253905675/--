@@ -1,300 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="../css/behind.css" />
     <title>欢迎进入</title>
-</head>
+  </head>
 
-<body>
-    <div class="reviseF" style="display: none;">
-        <ul class="threeli sixli">
-
-            <li>菜名: <input class="foodName" type="text" style="height: 30px; width: 250px;"> </li>
-
-            <li>价格: <input class="foodPay" type="text" style="height: 30px; width: 250px;"> </li>
-
-            <li>描述: <input class="taste" type="text" style="height: 30px; width: 250px;">
-            </li>
-            <li >类型名称: <input class="typeName" type="text"  style="height: 30px; width: 218px;">
-            </li>
-            <li >类型id: <input class="typeId" type="text"placeholder="0：面，1：米，2：饮品，3：水果"  style="height: 30px; width: 236px;">
-            </li>
-            <li>id: <input class="foodId" type="text" style="height: 30px; width: 270px;">
-            </li>
-            <li class="flflF"> <button class="sureF">确认</button>
-                <button class="clearF">取消</button>
-            </li>
-        </ul>
-    </div>
-    <div class="reviseO " style="display: none;">
-        <ul class="threeli fiveli">
-
-            <li>用户名：<input class="useNameP" type="text" style="height: 30px; width: 250px;"> </li>
-
-            <li>订单金额：<input class="useAccount" type="text" style="height: 30px; width: 235px;"> </li>
-
-            <li>手机号: <input class="usePhone" type="text" style="height: 30px; width: 256px;">
-            </li>
-            <li>支付情况: <input class="usePay" type="text" placeholder="0：未支付，1：已支付" style="height: 30px; width: 240px;">
-            </li>
-            <li>id: <input class="useIdP" type="text" style="height: 30px; width: 288px;">
-            </li>
-
-            <li class="flflP"> <button class="sureP">确认</button>
-                <button class="clearP">取消</button>
-            </li>
-        </ul>
-    </div>
-    <div class="reviseBox" style="display: none;">
-        <ul class="threeli">
-
-            <li>用户名：<input class="useName" type="text" placeholder="用户名" style="height: 30px; width: 250px;"> </li>
-
-            <li>年龄： <input class="useAge" type="text" placeholder="年龄" style="height: 30px; width: 250px;"> </li>
-
-            <li> 性别:<input class="useSex" type="text" placeholder="性别：0男，1女" style="height: 30px; width: 250px;">
-            </li>
-        </ul>
-        <li class="flfl"> <button class="sure">确认</button>
-            <button class="clear">取消</button>
+  <body>
+    <div class="reviseF" style="display: none">
+      <ul class="threeli sixli">
+        <li>
+          菜名:
+          <input
+            class="foodName"
+            type="text"
+            style="height: 30px; width: 250px"
+          />
         </li>
+
+        <li>
+          价格:
+          <input
+            class="foodPay"
+            type="text"
+            style="height: 30px; width: 250px"
+          />
+        </li>
+
+        <li>
+          描述:
+          <input class="taste" type="text" style="height: 30px; width: 250px" />
+        </li>
+        <li>
+          类型名称:
+          <input
+            class="typeName"
+            type="text"
+            style="height: 30px; width: 218px"
+          />
+        </li>
+        <li>
+          类型id:
+          <input
+            class="typeId"
+            type="text"
+            placeholder="0：面，1：米，2：饮品，3：水果"
+            style="height: 30px; width: 236px"
+          />
+        </li>
+        <li>
+          id:
+          <input
+            class="foodId"
+            type="text"
+            style="height: 30px; width: 270px"
+          />
+        </li>
+        <li class="flflF">
+          <button class="sureF">确认</button>
+          <button class="clearF">取消</button>
+        </li>
+      </ul>
     </div>
-    <div class="deleteBox" style="display: none;">
-        <p>确定删除吗</p>
-        <button class="ds">确定</button>
-        <button class="df">取消</button>
+    <div class="reviseO" style="display: none">
+      <ul class="threeli fiveli">
+        <li>
+          用户名：<input
+            class="useNameP"
+            type="text"
+            style="height: 30px; width: 250px"
+          />
+        </li>
+
+        <li>
+          订单金额：<input
+            class="useAccount"
+            type="text"
+            style="height: 30px; width: 235px"
+          />
+        </li>
+
+        <li>
+          手机号:
+          <input
+            class="usePhone"
+            type="text"
+            style="height: 30px; width: 256px"
+          />
+        </li>
+        <li>
+          支付情况:
+          <input
+            class="usePay"
+            type="text"
+            placeholder="0：未支付，1：已支付"
+            style="height: 30px; width: 240px"
+          />
+        </li>
+        <li>
+          id:
+          <input
+            class="useIdP"
+            type="text"
+            style="height: 30px; width: 288px"
+          />
+        </li>
+
+        <li class="flflP">
+          <button class="sureP">确认</button>
+          <button class="clearP">取消</button>
+        </li>
+      </ul>
     </div>
-    <div class="addF addW"  style="display: none;">
-        <div class="Fname">
-            菜名: <input class="foodNameA" type="text" style="height: 30px; width: 250px;">
-        </div>
-        <div class="Fmoney">
-            价格: <input class="foodPayA" type="text" style="height: 30px; width: 250px;">
-        </div>
-        <div class="Ftaste">
-            描述: <input class="tasteA" type="text" style="height: 30px; width: 250px;">
-        </div>
-        <div class="Ftype">
-            类型名称: <input class="typeNameA" type="text"  style="height: 30px; width: 218px;">
-        </div>
-        <div class="FtypeId">
-            类型id: <input class="typeIdA" type="text"placeholder="0：面，1：米，2：饮品，3：水果"  style="height: 30px; width: 236px;">
-        </div>
-        <button class="fts">确定</button>
-        <button class="ftd">取消</button>
+    <div class="reviseBox" style="display: none">
+      <ul class="threeli">
+        <li>
+          用户名：<input
+            class="useName"
+            type="text"
+            placeholder="用户名"
+            style="height: 30px; width: 250px"
+          />
+        </li>
+
+        <li>
+          年龄：
+          <input
+            class="useAge"
+            type="text"
+            placeholder="年龄"
+            style="height: 30px; width: 250px"
+          />
+        </li>
+
+        <li>
+          性别:<input
+            class="useSex"
+            type="text"
+            placeholder="性别：0男，1女"
+            style="height: 30px; width: 250px"
+          />
+        </li>
+      </ul>
+      <li class="flfl">
+        <button class="sure">确认</button>
+        <button class="clear">取消</button>
+      </li>
+    </div>
+    <div class="deleteBox" style="display: none">
+      <p>确定删除吗</p>
+      <button class="ds">确定</button>
+      <button class="df">取消</button>
+    </div>
+    <div class="addF addW" style="display: none">
+      <div class="Fname">
+        菜名:
+        <input
+          class="foodNameA"
+          type="text"
+          style="height: 30px; width: 250px"
+        />
+      </div>
+      <div class="Fmoney">
+        价格:
+        <input
+          class="foodPayA"
+          type="text"
+          style="height: 30px; width: 250px"
+        />
+      </div>
+      <div class="Ftaste">
+        描述:
+        <input class="tasteA" type="text" style="height: 30px; width: 250px" />
+      </div>
+      <div class="Ftype">
+        类型名称:
+        <input
+          class="typeNameA"
+          type="text"
+          style="height: 30px; width: 218px"
+        />
+      </div>
+      <div class="FtypeId">
+        类型id:
+        <input
+          class="typeIdA"
+          type="text"
+          placeholder="0：面，1：米，2：饮品，3：水果"
+          style="height: 30px; width: 236px"
+        />
+      </div>
+      <button class="fts">确定</button>
+      <button class="ftd">取消</button>
     </div>
 
-    <div class="addn" style="display: none;">
-        <div class="tname">
-            用户名:<input id="userNamead" type="text" style="height: 30px; width: 240px;">
-        </div>
-        <div class="tage">
-            年龄: <input class="useAgeaad" type="text" style="height: 30px; width: 250px;">
-        </div>
-        <div class="ysex">
-            性别: <input class="useSexad" type="text" placeholder="0男，1女" style="height: 30px; width: 250px;">
-        </div>
+    <div class="addn" style="display: none">
+      <div class="tname">
+        用户名:<input
+          id="userNamead"
+          type="text"
+          style="height: 30px; width: 240px"
+        />
+      </div>
+      <div class="tage">
+        年龄:
+        <input
+          class="useAgeaad"
+          type="text"
+          style="height: 30px; width: 250px"
+        />
+      </div>
+      <div class="ysex">
+        性别:
+        <input
+          class="useSexad"
+          type="text"
+          placeholder="0男，1女"
+          style="height: 30px; width: 250px"
+        />
+      </div>
 
-        <div class="temail">
-            邮箱：<input id="userEmailad" type="text" style="height: 30px; width: 245px;">
-        </div>
-        <button class="tds">确定</button>
-        <button class="tdf">取消</button>
+      <div class="temail">
+        邮箱：<input
+          id="userEmailad"
+          type="text"
+          style="height: 30px; width: 245px"
+        />
+      </div>
+      <button class="tds">确定</button>
+      <button class="tdf">取消</button>
     </div>
-    <div class="addO" style="display: none;">
-        <div class="nameO">
-            用户名:<input class="nameOAd" type="text" style="height: 30px; width: 270px;">
-        </div>
-        <div class="amountO">
-            订单金额: <input class="amountOAd" type="text" style="height: 30px; width: 250px;">
-        </div>
-        <div class="phoneO">
-            手机号: <input class="phoneOAd" type="text" style="height: 30px; width: 270px;">
-        </div>
+    <div class="addO" style="display: none">
+      <div class="nameO">
+        用户名:<input
+          class="nameOAd"
+          type="text"
+          style="height: 30px; width: 270px"
+        />
+      </div>
+      <div class="amountO">
+        订单金额:
+        <input
+          class="amountOAd"
+          type="text"
+          style="height: 30px; width: 250px"
+        />
+      </div>
+      <div class="phoneO">
+        手机号:
+        <input
+          class="phoneOAd"
+          type="text"
+          style="height: 30px; width: 270px"
+        />
+      </div>
 
-        <div class="payO">
-            支付情况：<input class="payOAd" type="text" placeholder="0：未支付，1：已支付"  style="height: 30px; width: 245px;">
-        </div>
-        <button class="dsO">确定</button>
-        <button class="dfO">取消</button>
+      <div class="payO">
+        支付情况：<input
+          class="payOAd"
+          type="text"
+          placeholder="0：未支付，1：已支付"
+          style="height: 30px; width: 245px"
+        />
+      </div>
+      <button class="dsO">确定</button>
+      <button class="dfO">取消</button>
     </div>
     <div class="blackBox"></div>
     <div class="againBac">
-        <div class="head">
-            <img src="../img/头像.png" alt="" style="width: 50px; height: 50px;">
-            <p class="random">笑笑</p>
-        </div>
-        <ul class="up">
-            <li>关于我们</li>
-            <li class="mid">帮助</li>
-            <li>投资</li>
+      <div class="head">
+        <img src="../img/头像.png" alt="" style="width: 50px; height: 50px" />
+        <p class="random">笑笑</p>
+      </div>
+      <ul class="up">
+        <li>关于我们</li>
+        <li class="mid">帮助</li>
+        <li>投资</li>
+      </ul>
+      <div class="header">
+        <img src="../img/二维码.png" alt="" />
+        <img src="../img/商业化全球.png" alt="" />
+        <img src="../img/安全隐私.png" alt="" />
+        <img src="../img/身份认证.png" alt="" />
+      </div>
+      <div class="all">
+        <ul class="nav">
+          <img
+            src="../img/0188ed5cd97a51a801208f8b068e68.png@1280w_1l_2o_100sh.png"
+            alt="这是一个图标"
+            width="200px"
+          />
+          <li class="common commonActive">用户管理</li>
+          <li class="common">订单管理</li>
+          <li class="common">菜品管理</li>
         </ul>
-        <div class="header">
-            <img src="../img/二维码.png" alt="">
-            <img src="../img/商业化全球.png" alt="">
-            <img src="../img/安全隐私.png" alt="">
-            <img src="../img/身份认证.png" alt="">
-        </div>
-        <div class="all">
-            <ul class="nav">
-                <img src="../img/0188ed5cd97a51a801208f8b068e68.png@1280w_1l_2o_100sh.png" alt="这是一个图标" width="200px">
-                <li id="god">
-                    用户管理
-                </li>
-                <li id="money">
-                    订单管理
-                </li>
-                <li id="food">
-                    菜品管理
-                </li>
+        <div class="down">
+          <div class="search">
+            <span>用户名：</span>
+            <input type="text" class="search_text" />
+            <button class="find">查询</button>
+            <button class="add">添加</button>
+            <button class="resset">重置</button>
+          </div>
+          <ul id="infoTop" class="infoSty colors">
+            <li>用户名</li>
+            <li>手机号</li>
+            <li>年龄</li>
+            <li>性别</li>
+            <li>操作框</li>
+          </ul>
+          <div id="nameInfo">
+            <ul class="infoSty colorsc">
+              <li>111</li>
+              <li>111</li>
+              <li>1111</li>
+              <li>111</li>
+              <li>
+                <button>修改</button>
+                <button>删除</button>
+              </li>
+              <li class="hid">222</li>
             </ul>
-            <div class="down">
-                <div class="search">
-                    <span>用户名：</span>
-                    <input type="text" class="search_text">
-                    <button class="find">查询</button>
-                    <button class="add">添加</button>
-                    <button class="resset">重置</button>
-                </div>
-                <ul id="infoTop" class="infoSty colors">
-                    <li>用户名</li>
-                    <li>id</li>
-                    <li>年龄</li>
-                    <li>性别</li>
-                    <li>操作框</li>
-                </ul>
-                <div id="nameInfo">
-                    <ul class="infoSty colorsc">
-                        <li>111</li>
-                        <li>111</li>
-                        <li>1111</li>
-                        <li>111</li>
-                        <li>
-                            <button>修改</button>
-                            <button>删除</button>
-                        </li>
-                        <li class="hid">222</li>
-                    </ul>
-                </div>
-                <table class="page">
-                    <tr>
-                        <td>
-                            <select id="change">
-                                <option value="9" class="tt">9条/页</option>
-                                <option value="6" class="tt">6条/页</option>
-                                <option value="3" class="tt">3条/页</option>
-                            </select>
-                        </td>
-                        <td> <button class="last">上一页</button></td>
-                        <td> <span class="pageIndex">1</span></td>
-                        <td> <span>/</span></td>
-                        <td> <span class="pageAll">1</span></td>
-                        <td> <button class="next">下一页</button></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="down plus" style="display: none;">
-                <div class="search">
-                    <span>订单名：</span>
-                    <input type="text" class="search_textO">
-                    <button class="findO">查询</button>
-                    <button class="oAdd">添加</button>
-                    <button class="ressetO">重置</button>
-                </div>
-                <ul id="infoTop" class="infoSty colors">
-                    <li>用户名</li>
-                    <li>订单金额</li>
-                    <li>客户手机号</li>
-                    <li>支付情况</li>
-                    <li>id</li>
-                    <li>操作框</li>
-                </ul>
-                <div id="nameInfoP">
-                    <ul class="infoSty colorsc infoStyP">
-                        <li>111</li>
-                        <li>111</li>
-                        <li>1111</li>
-                        <li>111</li>
-                        <li>111</li>
-                        <li>
-                            <button>修改</button>
-                            <button>删除</button>
-                        </li>
-                        <li class="hid hidP">222</li>
-                    </ul>
-                </div>
-                <table class="pageP">
-                    <tr>
-                        <td>
-                            <select id="changeP">
-                                <option value="10" class="tsp">10条/页</option>
-                                <option value="5" class="tsp">5条/页</option>
-                                <option value="3" class="tsp">3条/页</option>
-                            </select>
-                        </td>
-                        <td> <button class="lastP">上一页</button></td>
-                        <td> <span class="pageIndexP">1</span></td>
-                        <td> <span>/</span></td>
-                        <td> <span class="pageAllP">1</span></td>
-                        <td> <button class="nextP">下一页</button></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="down pluss" style="display: none;">
-                <div class="search">
-                    <span>食物名称或描述：</span>
-                    <input type="text" class="search_textF">
-                    <button class="findF">查询</button>
-                    <button class="addFB">添加</button>
-                    <button class="ressetF">重置</button>
-                </div>  
-                <ul id="infoTof" class="infoSty colors">
-                    <li>菜名</li>
-                    <li>价格</li>
-                    <li>描述</li>
-                    <li>类型名称</li>
-                    <li>类型id</li>
-                    <li>操作框</li>
-                </ul>
-                <div id="nameInfoF">
-                    <ul class="infoSty colorsc ">
-                        <li>111</li>
-                        <li>111</li>
-                        <li>1111</li>
-                        <li>111</li>
-                        <li>111</li>
-                        
-                        <li>
-                            <button>修改</button>
-                            <button>删除</button>
-                        </li>
-                        <li class="hid hidP">222</li>
-                    </ul>
-                </div>
-                <table class="pageF">
-                    <tr>
-                        <td>
-                            <select id="changeF">
-                                <option value="10" class="tsf">10条/页</option>
-                                <option value="5" class="tsf">5条/页</option>
-                                <option value="3" class="tsf">3条/页</option>
-                            </select>
-                        </td>
-                        <td> <button class="lastF">上一页</button></td>
-                        <td> <span class="pageIndexF">1</span></td>
-                        <td> <span>/</span></td>
-                        <td> <span class="pageAllF">1</span></td>
-                        <td> <button class="nextF">下一页</button></td>
-                    </tr>
-                </table>
-            </div>
+          </div>
+          <table class="page">
+            <tr>
+              <td>
+                共 <span class="allThree">5</span> 条
+              </td>
+              <td>
+                <select id="change">
+                  <option value="9" class="tt">9条/页</option>
+                  <option value="6" class="tt">6条/页</option>
+                  <option value="3" class="tt">3条/页</option>
+                </select>
+              </td>
+              <td><button class="last">上一页</button></td>
+              <td><span class="pageIndex">1</span></td>
+              <td><span>/</span></td>
+              <td><span class="pageAll">1</span></td>
+              <td><button class="next">下一页</button></td>
+            </tr>
+          </table>
         </div>
+        <div class="down plus" style="display: none">
+          <div class="search">
+            <span>用户名：</span>
+            <input type="text" class="search_textO" />
+            <button class="findO">查询</button>
+            <button class="oAdd">添加</button>
+            <button class="ressetO">重置</button>
+          </div>
+          <ul id="infoTop" class="infoSty colors">
+            <li>用户名</li>
+            <li>订单金额</li>
+            <li>客户手机号</li>
+            <li>支付情况</li>
+            <li>时间</li>
+            <li>操作框</li>
+          </ul>
+          <div id="nameInfoP">
+            <ul class="infoSty colorsc infoStyP">
+              <li>111</li>
+              <li>111</li>
+              <li>1111</li>
+              <li>111</li>
+              <li>111</li>
+              <li>
+                <button>修改</button>
+                <button>删除</button>
+              </li>
+              <li class="hid hidP">222</li>
+            </ul>
+          </div>
+          <table class="pageP">
+            <tr>
+              <td>
+                共 <span class="allThree"></span> 条
+              </td>
+              <td>
+                <select id="changeP">
+                  <option value="10" class="tsp">10条/页</option>
+                  <option value="5" class="tsp">5条/页</option>
+                  <option value="3" class="tsp">3条/页</option>
+                </select>
+              </td>
+              <td><button class="lastP">上一页</button></td>
+              <td><span class="pageIndexP">1</span></td>
+              <td><span>/</span></td>
+              <td><span class="pageAllP">1</span></td>
+              <td><button class="nextP">下一页</button></td>
+            </tr>
+          </table>
+        </div>
+        <div class="down pluss" style="display: none">
+          <div class="search">
+            <span>食物名称或描述：</span>
+            <input type="text" class="search_textF" />
+            <button class="findF">查询</button>
+            <button class="addFB">添加</button>
+            <button class="ressetF">重置</button>
+          </div>
+          <ul id="infoTof" class="infoSty colors">
+            <li>菜名</li>
+            <li>价格</li>
+            <li>描述</li>
+            <li>类型名称</li>
+            <li>操作框</li>
+          </ul>
+          <div id="nameInfoF">
+            <ul class="infoSty colorsc">
+              <li>111</li>
+              <li>111</li>
+              <li>1111</li>
+              <li>111</li>
+              <li>
+                <button>修改</button>
+                <button>删除</button>
+              </li>
+              <li class="hid hidP">222</li>
+            </ul>
+          </div>
+          <table class="pageF">
+            <tr>
+              <td>
+                共 <span class="allThree"></span> 条
+              </td>
+              <td>
+                <select id="changeF">
+                  <option value="10" class="tsf">10条/页</option>
+                  <option value="5" class="tsf">5条/页</option>
+                  <option value="3" class="tsf">3条/页</option>
+                </select>
+              </td>
+              <td><button class="lastF">上一页</button></td>
+              <td><span class="pageIndexF">1</span></td>
+              <td><span>/</span></td>
+              <td><span class="pageAllF">1</span></td>
+              <td><button class="nextF">下一页</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
     <script src="../js/jquery.js"></script>
-    <script src="../js/behind.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../js/login.js" type="text/javascript" charset="utf-8"></script>
-</body>
-
+    <script
+      src="../js/behind.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script
+      src="../js/login.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+  </body>
 </html>

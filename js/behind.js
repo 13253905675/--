@@ -7,6 +7,18 @@ var per_page = 9;
 var allIndexs = 0;
 var last = document.getElementsByClassName('last')[0];
 var next = document.getElementsByClassName('next')[0];
+var allThree=document.getElementsByClassName('allThree');
+console.log(localStorage.getItem('_id'));
+$.ajax({
+    url:'http://118.195.129.130:3000/user/inquire',
+    type:'POST',
+    data:{
+        _id:window.localStorage.getItem('_id')
+    },
+    success:function(result){
+        random.innerHTML=result.data[0].us;
+    },
+})
 function getUserInfo() {
     $.ajax({
         type: "POST",
@@ -19,8 +31,13 @@ function getUserInfo() {
             console.log(result);
             nameInfo.innerHTML = ''
             for (var i = 0; i < result.data.length; i++) {
-                nameInfo.innerHTML += "<ul class='infoSty'>" + "<li>" + result.data[i].us + "</li>" + "<li >" + result.data[i]._id + "</li>" +
-                    "<li >" + result.data[i].age + "</li>" + "<li >" + result.data[i].sex + "</li>"
+                var sex='男'
+                if(result.data[i].sex ==1){
+                    console.log(999)
+                    sex='女'
+                }
+                nameInfo.innerHTML += "<ul class='infoSty'>" + "<li>" + result.data[i].us + "</li>" + "<li >" + result.data[i].phone + "</li>" +
+                    "<li >" + result.data[i].age + "</li>" + "<li >" + sex + "</li>"
                     + "<li>" + "<button class='revise'>修改</button>" + "<button class='deletes'>删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result.data[i]) + "</li>" + "</ul>"
 
             }
@@ -95,14 +112,13 @@ function getUserInfo() {
         }
     })
     getAllIndex()
-
-
-
+   
 
 }
 var pageIndex = document.getElementsByClassName('pageIndex')[0];
 var pageAll = document.getElementsByClassName('pageAll')[0];
 next.onclick = function () {
+    console.log(111);
     if (Math.ceil(allIndexs / per_page) <= page) {
         alert('当前是最后一页')
         return
@@ -135,14 +151,13 @@ clear.onclick = function () {
 }
 var change = document.getElementById('change')
 change.onclick = function () {
-    
+    page=1;
     var index = change.selectedIndex;
     var value = change.options[index].value
     if (value != per_page) {
         per_page = value
         getUserInfo()
-    
-    
+        pageIndex.innerText=1;
         pageAll.innerText = Math.ceil(allIndexs / per_page);
     }
 }
@@ -179,10 +194,15 @@ find.onclick = function () {
             console.log(result);
             result = result.data[0]
             nameInfo.innerHTML = '';
+            var sex='男'
+            if(result.sex ==1){
+                console.log(999)
+                sex='女'
+            }
             nameInfo.innerHTML = "<ul class='infoSty'>" + "<li>" + result.us + "</li>" + "<li >" + result._id + "</li>" +
-                "<li >" + result.age + "</li>" + "<li >" + result.sex + "</li>"
+                "<li >" + result.age + "</li>" + "<li >" + sex + "</li>"
                 + "<li>" + "<button class='revise' >修改</button>" + "<button class='deletes'>删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result) + "</li>" + "</ul>"
-            search_text.value="";
+            
 
 
         }
@@ -195,6 +215,7 @@ resset.onclick = function () {
     per_page=9;
     page=1;
     getUserInfo()
+    search_text.value="";
 }
 var addn = document.getElementsByClassName('addn')[0];
 var tds = document.getElementsByClassName('tds')[0];
@@ -228,25 +249,34 @@ tdf.onclick = function () {
 }
 }
 
-var god = document.getElementById('god');
-var money = document.getElementById('money');
-var food = document.getElementById('food');
+
+var common= document.getElementsByClassName('common');
 var down = document.getElementsByClassName('down');
 down[1].style.display = "none"
-god.onclick = function () {
+common[0].onclick = function () {
     down[0].style.display = "";
     down[1].style.display = "none"
     down[2].style.display = "none"
+    
+    common[0].classList.add('commonActive');
+    common[1].classList.remove('commonActive');
+    common[2].classList.remove('commonActive');
 }
-money.onclick = function () {
+common[1].onclick = function () {
     down[0].style.display = "none";
     down[1].style.display = "";
     down[2].style.display = "none"
+    common[1].classList.add('commonActive');
+    common[0].classList.remove('commonActive');
+    common[2].classList.remove('commonActive');
 }
-food.onclick=function(){
+common[2].onclick=function(){
     down[0].style.display = "none";
     down[1].style.display = "none";
     down[2].style.display = "";
+    common[2].classList.add('commonActive');
+    common[1].classList.remove('commonActive');
+    common[0].classList.remove('commonActive');
 }
 page = 1;
 per_page = 10;
@@ -268,18 +298,18 @@ function getUserInfoP() {
             per_page: per_page,
         },
         success: function (result) {
-            console.log(result);
             nameInfoP.innerHTML = "";
             for (var i = 0; i < result.data.length; i++) {
+                var payCase="已支付";
+                if(result.data[i].pay==0){
+                   payCase="未支付";
+                }
                 nameInfoP.innerHTML += "<ul class='infoSty'>" + "<li>" + result.data[i].us + "</li>" + "<li >" + result.data[i].amount + "</li>" +
-                    "<li >" + result.data[i].phone + "</li>" + "<li >" + result.data[i].pay + "</li>" + "<li >" + result.data[i]._id + "</li>"
+                    "<li >" + result.data[i].phone + "</li>" + "<li >" + payCase + "</li>" + "<li >" + result.data[i].time + "</li>"
                     + "<li>" + "<button class='revises' >修改</button>" + "<button class='deletess'>删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result.data[i]) + "</li>" + "</ul>"
             }
-            
             for (var k = 0; k < revises.length; k++) {
-            
                 revises[k].onclick = function () {
-                    console.log(666)
                     var blackBox = document.getElementsByClassName('blackBox')[0];
                     var sureP = document.getElementsByClassName("sureP")[0];
                     var useNameP = document.getElementsByClassName("useNameP")[0];
@@ -365,6 +395,7 @@ function getUserInfoP() {
                                 alert("删除成功!");
                                 per_page=10;
                                 page=1;
+                                userAllNum();
                                 getUserInfoP();
                     }
                 })
@@ -378,8 +409,10 @@ function getUserInfoP() {
             }
         }
     })
+    
 
 }
+userAllNum();
 getUserInfoP();
 
 var allIndexOs;
@@ -402,11 +435,13 @@ function getAllIndexO(){
 getAllIndexO();
 var changeP=document.getElementById('changeP');
     changeP.onclick=function(){
+        page=1;
         var indexO=changeP.selectedIndex;
         var valueO=changeP.options[indexO].value;
         if (valueO!=per_page) {
             per_page=valueO;
             getUserInfoP()
+            pageIndexP.innerText=1;
             pageAllP.innerText=Math.ceil(allIndexOs / per_page);
         }
     }
@@ -458,7 +493,7 @@ oAdd.onclick = function () {
 dsO.onclick = function () {
     var blackBox = document.getElementsByClassName('blackBox')[0];
     
-    alert("添加成功");
+    
     addO.style.display = "none";
     blackBox.style.display="none";
     $.ajax({
@@ -471,7 +506,10 @@ dsO.onclick = function () {
             pay:payOAd.value,
         },
         success: function (result) {
-           
+            alert("添加成功");
+            page=1;
+            per_page=10;
+            userAllNum();
             getUserInfoP();
         }
     })
@@ -488,6 +526,7 @@ var ressetO=document.getElementsByClassName('ressetO')[0];
 ressetO.onclick=function(){
     pageP.style.display="";
     getUserInfoP();
+    search_textO.value="";
 }
 var findO=document.getElementsByClassName('findO')[0];
 var search_textO=document.getElementsByClassName('search_textO')[0];
@@ -506,15 +545,51 @@ findO.onclick=function(){
             result = result.data
             nameInfoP.innerHTML = '';
             for(var j=0;j<result.length;j++){  
+                var payCase="已支付";
+                if(result.data[i].pay==0){
+                   payCase="未支付";
+                }
             nameInfoP.innerHTML+= "<ul class='infoSty'>" + "<li>" + result[j].us + "</li>" + "<li >" + result[j].amount + "</li>" +
-                "<li >" + result[j].phone + "</li>" + "<li >" + result[j].pay + "</li>"+ "<li >" + result[j]._id + "</li>"
+                "<li >" + result[j].phone + "</li>" + "<li >" + payCase + "</li>"+ "<li >" + result[j]._id + "</li>"
                 + "<li>" + "<button class='revises' >修改</button>" + "<button class='deletess'>删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result[j]) + "</li>" + "</ul>"
             }
-            search_textO.value="";
+            
         }
     })
 
 }
+var allThree=document.getElementsByClassName('allThree');
+
+    function userAllNum(){
+        $.ajax({
+            type: "GET",
+            url: "http://118.195.129.130:3000/order/allpage_order",
+            data: {
+    
+            },
+            success: function (result) {
+                allThree[1].innerHTML=result.pages;
+            }
+    
+        })
+    }
+    function foodNum(){
+            $.ajax({
+                type: "GET",
+                url: "http://118.195.129.130:3000/food/allpage",
+                data: {
+        
+                },
+                success: function (result) {
+                
+                    allThree[2].innerHTML=result.pages;
+                }
+        
+            })
+         }
+    
+
+
 page=1;
 per_page=10;
 var pageAllF=document.getElementsByClassName('pageAllF')[0];
@@ -538,7 +613,7 @@ function getUserInfoF() {
             nameInfoF.innerHTML = "";
             for (var i = 0; i < result.data.length; i++) {
                 nameInfoF.innerHTML += "<ul class='infoSty'>" + "<li>" + result.data[i].name + "</li>" + "<li >" + result.data[i].price+ "</li>" +
-                    "<li >" + result.data[i].desc + "</li>" + "<li >" + result.data[i].typename + "</li>" + "<li >" + result.data[i].typeid + "</li>"
+                    "<li >" + result.data[i].desc + "</li>" + "<li >" + result.data[i].typename + "</li>" 
                     + "<li>" + "<button class='revisef' >修改</button>" + "<button class='deletesf'>删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result.data[i]) + "</li>" + "</ul>"
             }
             var revisef = document.getElementsByClassName("revisef");
@@ -620,6 +695,7 @@ function getUserInfoF() {
                         success: function (result) {
                             console.log(result);
                             alert("删除成功!");
+                            foodNum();
                             getUserInfoF();
                 }
             })
@@ -688,6 +764,7 @@ fts.onclick = function () {
            tasteA.value="";
            typeNameA.value="";
            typeIdA.value="";
+           foodNum();
             getUserInfoF();
         }
     })
@@ -698,6 +775,7 @@ ftd.onclick = function () {
     blackBox.style.display="none";
  }
  }
+ foodNum();
  getUserInfoF();
  var ressetF=document.getElementsByClassName('ressetF')[0];
  ressetF.onclick=function(){
@@ -705,6 +783,7 @@ ftd.onclick = function () {
     page=1;
     getUserInfoF();
     pageF.style.display="";
+    search_textF.value="";
  }
  var findF=document.getElementsByClassName('findF')[0];
 var search_textF=document.getElementsByClassName('search_textF')[0];
@@ -723,10 +802,10 @@ findF.onclick=function(){
             nameInfoF.innerHTML = '';
             for(var j=0;j<result.length;j++){  
             nameInfoF.innerHTML+= "<ul class='infoSty'>" + "<li>" + result[j].name + "</li>" + "<li >" + result[j].price + "</li>" +
-                "<li >" + result[j].desc + "</li>" + "<li >" + result[j].typename + "</li>"+ "<li >" + result[j].typeid + "</li>"
+                "<li >" + result[j].desc + "</li>" + "<li >" + result[j].typename + "</li>" + "</li>"
                 + "<li>" + "<button class='revises' >修改</button>" + "<button class='deletess'>删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result[j]) + "</li>" + "</ul>"
             }
-            search_textF.value="";
+            
         }
     })
 
@@ -750,17 +829,18 @@ function getAllIndexF(){
 }
 var changeF=document.getElementById('changeF');
     changeF.onclick=function(){
+        page=1;
         var indexF=changeF.selectedIndex;
         var valueF=changeF.options[indexF].value;
         if (valueF!=per_page) {
             per_page=valueF;
             getUserInfoF()
+            pageIndexF.innerText=1;
             pageAllF.innerText=Math.ceil(allIndexsF / per_page);
         }
     }
     getAllIndexF();
     page=1;
-    per_page=1;
     var pageIndexF=document.getElementsByClassName('pageIndexF')[0];
     var pageAllF=document.getElementsByClassName('pageAllF')[0];
     var nextF=document.getElementsByClassName('nextF')[0];

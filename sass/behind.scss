@@ -14,74 +14,77 @@ input {
   outline: none;
   padding-left: 10px;
 }
-.revises,.revisef,.revise{
+.revises,
+.revisef,
+.revise {
   background-color: #7de3ef;
-  color:#ffffff;
-  border:#ffffff 1px solid;
+  color: #ffffff;
+  border: #ffffff 1px solid;
   width: 50px;
   height: 25px;
 }
-.deletesf,.deletes,.deletess{
-  background-color:#1ed8ee70;
-  color:#ffffff;
-  border:#ffffff 1px solid;
+.deletesf,
+.deletes,
+.deletess {
+  color: #ffffff;
+  border: #ffffff 1px solid;
+  width: 50px;
+  height: 25px;
+  background-color:#ff000091;
+}
+.last,
+.lastF,
+.lastP {
+  background-color: #2196f3;
+  color: #ffffff;
+  border: #ffffff 1px solid;
   width: 50px;
   height: 25px;
 }
-.last,.lastF,.lastP{
-  background-color: #2196F3;
-  color:#ffffff;
-  border:#ffffff 1px solid;
+.next,
+.nextP,
+.nextF {
+  background-color: #2196f3;
+  color: #ffffff;
+  border: #ffffff 1px solid;
   width: 50px;
   height: 25px;
 }
-.next,.nextP,.nextF{
-  background-color: #2196F3;
-  color:#ffffff;
-  border:#ffffff 1px solid;
-  width: 50px;
-  height: 25px;
+.findF,
+.find,
+.findO {
+  background-color: #2196f3;
+  color: #ffffff;
+  border: #ffffff 1px solid;
 }
-.findF,.find,.findO{
-  background-color: #2196F3;
-  color:#ffffff;
-  border:#ffffff 1px solid;
- 
-}
-
 
 li {
   list-style: none;
 }
 
 /* 使用变量 */
-.nav>li {
+.nav > li {
   position: relative;
   background-color: $li;
   color: $fourWords;
   font-size: $fontsize;
   list-style: none;
   top: -10px;
-  width: 160px;
-  padding: 20px 0px 20px 40px;
+  width: 145px;
+  padding: 22px 3px 20px 53px;
 }
 
 .nav {
   width: 200px;
 }
 
-
-
 .nav {
   min-width: 20%;
-
-
 }
 
 .againBac {
   position: absolute;
   width: 100%;
-
 }
 
 .header {
@@ -90,10 +93,9 @@ li {
   top: 17px;
 }
 
-.header>img {
+.header > img {
   width: $lconw;
   height: $lconh;
-
 }
 
 .up {
@@ -103,7 +105,7 @@ li {
   padding: 10px 0 0 200px;
 }
 
-.up>li {
+.up > li {
   float: right;
   font-size: $fontsize;
   color: $li;
@@ -122,16 +124,14 @@ li {
   left: 18px;
 }
 
-.head>p {
+.head > p {
   font-size: 18px;
   position: relative;
   top: -40px;
   left: 67px;
 }
 
-
-
-#nameInfo>li {
+#nameInfo > li {
   // display: flex;
   flex-direction: row;
   padding-top: 8px;
@@ -144,7 +144,6 @@ li {
   position: relative;
   background-color: rgba(4, 255, 0, 0.14);
   flex-wrap: nowrap;
-
 }
 
 #nameInfoP {
@@ -155,17 +154,15 @@ li {
   flex-wrap: nowrap;
 }
 
-#nameInfoP>li {
+#nameInfoP > li {
   // display: flex;
   flex-direction: row;
   padding-top: 8px;
 }
 
-
 .info {
   display: flex;
 }
-
 
 .left {
   width: 200px;
@@ -180,11 +177,9 @@ li {
   width: 1050px;
 }
 
-
 .infoSty {
   width: 100%;
   display: flex;
-
 }
 
 .colors {
@@ -192,20 +187,21 @@ li {
   color: #ffffff;
 }
 
-.infoSty>li {
+.infoSty > li {
   width: 200px;
   text-align: center;
   line-height: 40px;
-  
+  text-overflow: ellipsis; /* 溢出显示省略号 */
+  overflow: hidden; /* 溢出隐藏 */
+  white-space: nowrap;  /* 强制不换行 */
 }
-.infoStyF>li {
+.infoStyF > li {
   width: 200px;
   text-align: center;
   line-height: 40px;
-  
 }
 
-#nameInfoF{
+#nameInfoF {
   flex-direction: row;
   justify-content: space-around;
   position: relative;
@@ -213,38 +209,29 @@ li {
   flex-wrap: nowrap;
 }
 
-
-
 .down {
-
   margin-top: 20px;
 }
 
-.page {
-  position: absolute;
-  left: 950px;
-  top: 430px;
+.page,.pageP ,.pageF{
+  padding-top: 15px;
+ float: right;
 }
 
-.pageP {
-  position: absolute;
-  left: 984px;
-  top: 443px;
-}
+
 
 .search {
   outline: none;
   padding: 20px 20px;
   font-size: 18px;
-
 }
 
-.search>button {
+.search > button {
   width: 65px;
   height: 35px;
 }
 
-.search>input {
+.search > input {
   width: 211px;
   height: 26px;
   outline: none;
@@ -260,6 +247,7 @@ li {
 #change {
   width: 108px;
   height: 24px;
+  margin-left: 20px;
   margin-right: 40px;
   outline: none;
   text-align: center;
@@ -268,6 +256,7 @@ li {
 #changeP {
   width: 108px;
   height: 24px;
+  margin-left: 20px;
   margin-right: 40px;
   outline: none;
   text-align: center;
@@ -277,7 +266,7 @@ li {
   display: none;
 }
 
-.threeli>li {
+.threeli > li {
   margin: 33px 73px;
   outline: none;
 }
@@ -293,7 +282,8 @@ li {
   top: 130px;
   left: 521px;
 }
-.reviseF{
+
+.reviseF {
   z-index: 5;
   width: 505px;
   height: 503px;
@@ -304,25 +294,22 @@ li {
   top: 130px;
   left: 446px;
   padding-left: 30px;
-
 }
 
-.flflF{
+.flflF {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.flflF>button {
+.flflF > button {
   width: 90px;
   height: 33px;
   font-size: 15px;
-  
 }
 
 .flfl {
   text-align: center;
-  
 }
 
 .flflP {
@@ -331,24 +318,23 @@ li {
   justify-content: space-around;
 }
 
-.flflP>button {
+.flflP > button {
   width: 58px;
   height: 29px;
 }
 
-.flfl>button {
+.flfl > button {
   width: 58px;
   height: 29px;
 }
-
 
 .reviseO {
   padding-top: 50px;
   width: 520px;
   height: 430px;
-  background-color: #B2EBF2;
+  background-color: #b2ebf2;
   position: absolute;
-  top:15%;
+  top: 15%;
   left: 33%;
   z-index: 5;
 }
@@ -362,7 +348,6 @@ li {
   top: 0;
   bottom: 0;
   z-index: 1;
-
 }
 
 .deleteBox {
@@ -378,12 +363,12 @@ li {
   border: rgba(0, 0, 255, 0.503) 3px solid;
 }
 
-.deleteBox>p {
+.deleteBox > p {
   padding: 30px 0;
   text-align: center;
 }
 
-.deleteBox>button {
+.deleteBox > button {
   margin-right: 40px;
   margin-left: 50px;
   width: 40px;
@@ -392,7 +377,7 @@ li {
 .addn {
   width: 500px;
   height: 370px;
-  background-color: #B2EBF2;
+  background-color: #b2ebf2;
   position: absolute;
   top: 20%;
   left: 33%;
@@ -410,13 +395,13 @@ li {
   padding-top: 40px;
   z-index: 5;
 }
-.addF>div{
+.addF > div {
   padding: 25px 79px;
 }
-.addO{
+.addO {
   width: 500px;
   height: 450px;
-  border:3px solid #B2EBF2;
+  border: 3px solid #b2ebf2;
   position: absolute;
   top: 20%;
   left: 33%;
@@ -424,30 +409,28 @@ li {
   z-index: 5;
   background-color: #ffffff;
 }
-.addO>div{
+.addO > div {
   padding: 25px 79px;
 }
-.payO{
+.payO {
   margin-bottom: 25px;
 }
-.dsO,.dfO{
+.dsO,
+.dfO {
   margin-right: 40px;
   margin-left: 110px;
   width: 75px;
   height: 40px;
   font-size: 15px;
-  
 }
-.fts,.ftd{
+.fts,
+.ftd {
   margin-right: 40px;
   margin-left: 110px;
   width: 75px;
   height: 40px;
   font-size: 15px;
-  
 }
-
-
 
 .tname,
 .tage,
@@ -455,9 +438,18 @@ li {
 .temail {
   padding-bottom: 40px;
   padding-left: 80px;
-
+}
+.tds,.fts,.dsO{
+  color: #ffffff;
+  background-color: #2196f3;
+  border-color:white ;
 }
 
+.ftd,.tdf,.dfO{
+  color: #ffffff;
+  background-color: coral;
+  border-color:white ;
+}
 .tds,
 .tdf {
   margin-right: 40px;
@@ -467,46 +459,49 @@ li {
   font-size: 15px;
 }
 
-.nav>li {
+.nav > li {
   cursor: pointer;
 }
-.pluss{
-  width: 1090px;
+.pluss {
+  width: 1030px;
 }
-.pageF{
-  position: absolute;
-  left: 1073px;
-  top: 545px;
-}
-#changeF{
+
+#changeF {
   width: 108px;
   height: 24px;
+  margin-left: 20px;
   margin-right: 40px;
   outline: none;
   text-align: center;
-  
 }
-#god:hover{
-  background-color: #b8b2f2;
-  color: #ffffff;
-  
-}
-#money:hover{
+#god:hover {
   background-color: #b8b2f2;
   color: #ffffff;
 }
-#food:hover{
+#money:hover {
   background-color: #b8b2f2;
   color: #ffffff;
 }
-.addF,.add,.oAdd{
+#food:hover {
+  background-color: #b8b2f2;
+  color: #ffffff;
+}
+.oAdd,
+.add,
+.addFB {
   background-color: #b8b2f2;
   color: #ffffff;
   border: #ffffff;
 }
-.resset,.ressetO,.ressetF{
-  background-color:#ff8f007a;
+.resset,
+.ressetO,
+.ressetF {
+  background-color: #ff8f00b0;
   color: #ffffff;
-  border:#ffffff;
+  border: #ffffff;
 }
 
+.commonActive {
+  color: #ffffff !important;
+  background-color: #b8b2f2!important ;
+}
