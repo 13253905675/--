@@ -119,7 +119,7 @@
             class="useName"
             type="text"
             placeholder="用户名"
-            style="height: 30px; width: 250px"
+            style="height: 30px; width: 170px"
           />
         </li>
 
@@ -129,17 +129,15 @@
             class="useAge"
             type="text"
             placeholder="年龄"
-            style="height: 30px; width: 250px"
+            style="height: 30px; width: 183px"
           />
         </li>
 
         <li>
-          性别:<input
-            class="useSex"
-            type="text"
-            placeholder="性别：0男，1女"
-            style="height: 30px; width: 250px"
-          />
+          性别: <select class="personSex useSex">
+            <option value="0">男</option>
+            <option value="1" >女</option>
+          </select>
         </li>
       </ul>
       <li class="flfl">
@@ -200,31 +198,31 @@
           id="userNamead"
           type="text"
           style="height: 30px; width: 240px"
+          autocomplete="off"
         />
       </div>
-      <div class="tage">
+      <div class="tage" >
         年龄:
         <input
           class="useAgeaad"
           type="text"
           style="height: 30px; width: 250px"
+          onchange = "value=value.replace(/[^\d]/g,'')"
         />
       </div>
       <div class="ysex">
         性别:
-        <input
-          class="useSexad"
-          type="text"
-          placeholder="0男，1女"
-          style="height: 30px; width: 250px"
-        />
-      </div>
-
+        <select class="personSex personSelf">
+          <option >男</option>
+          <option >女</option>
+        </select>
+        </div>
       <div class="temail">
         邮箱：<input
           id="userEmailad"
           type="text"
           style="height: 30px; width: 245px"
+          autocomplete="off"
         />
       </div>
       <button class="tds">确定</button>
@@ -236,6 +234,7 @@
           class="nameOAd"
           type="text"
           style="height: 30px; width: 270px"
+          autocomplete="off"
         />
       </div>
       <div class="amountO">
@@ -271,11 +270,12 @@
       <div class="head">
         <img src="../img/头像.png" alt="" style="width: 50px; height: 50px" />
         <p class="random">笑笑</p>
+      
       </div>
       <ul class="up">
         <li>关于我们</li>
         <li class="mid">帮助</li>
-        <li>投资</li>
+        <li class="bye">退出登录</li>
       </ul>
       <div class="header">
         <img src="../img/二维码.png" alt="" />
@@ -387,7 +387,7 @@
               <td><button class="lastP">上一页</button></td>
               <td><span class="pageIndexP">1</span></td>
               <td><span>/</span></td>
-              <td><span class="pageAllP">1</span></td>
+              <td><span class="pageAllP">2</span></td>
               <td><button class="nextP">下一页</button></td>
             </tr>
           </table>
