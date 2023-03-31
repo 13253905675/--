@@ -337,6 +337,7 @@ var infoStyP = document.getElementsByClassName("infoStyP")[0];
 var reviseO = document.getElementsByClassName("reviseO")[0];
 reviseO.style.display = "none";
 function getUserInfoP() {
+<<<<<<< HEAD
   $.ajax({
     type: "POST",
     url: "http://118.195.129.130:3000/order/getInfoByPage_order",
@@ -350,6 +351,126 @@ function getUserInfoP() {
         var payCase = "已支付";
         if (result.data[i].pay == 0) {
           payCase = "未支付";
+=======
+    $.ajax({
+        type: "POST",
+        url: "http://118.195.129.130:3000/order/getInfoByPage_order",
+        data: {
+            page: page,
+            per_page: per_page,
+        },
+        success: function (result) {
+            nameInfoP.innerHTML = "";
+            
+            for (var i = 0; i < result.data.length; i++) {
+                var payCase="已支付";
+                if(result.data[i].pay==0){
+                   payCase="未支付";
+                }
+                nameInfoP.innerHTML += "<ul class='infoSty'>" + "<li>" + result.data[i].us + "</li>" + "<li >" + result.data[i].amount + "</li>" +
+                    "<li >" + result.data[i].phone + "</li>" + "<li >" + payCase + "</li>" + "<li >" + result.data[i].time + "</li>"
+                    + "<li>" + "<button class='revises' >修改</button>" + "<button class='deletess' orderId="+JSON.stringify(result.data[i]._id)+">删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result.data[i]) + "</li>" + "</ul>"
+            }
+            for (var k = 0; k < revises.length; k++) {
+                revises[k].onclick = function () {
+                    var blackBox = document.getElementsByClassName('blackBox')[0];
+                    var sureP = document.getElementsByClassName("sureP")[0];
+                    var useNameP = document.getElementsByClassName("useNameP")[0];
+                    var useAccount = document.getElementsByClassName("useAccount")[0];
+                    var usePhone = document.getElementsByClassName("usePhone")[0];
+                    var usePay = document.getElementsByClassName("usePay")[0];
+                    var useIdP = document.getElementsByClassName("useIdP")[0];
+                    document.getElementsByClassName("reviseO")[0].style.display = "";
+                    document.getElementsByClassName('blackBox')[0].style.display = "";
+                    document.addEventListener("click", handler, true);
+                    function handler(event) {
+                        event = event || window.event;//设置兼容性
+                        event.preventDefault ? event.preventDefault() : (event.retrunValue = false);//设置兼容性
+                        event.stopPropragation ? event.stopPropragation() : (event.cancelBubble = true)//设置兼容性
+                    }
+                    userUs = JSON.parse(this.parentElement.parentElement.lastElementChild.innerText).us;
+                    useNameP.value = userUs;
+                    useA = JSON.parse(this.parentElement.parentElement.lastElementChild.innerText).amount;
+                    useAccount.value = useA;
+                    useS = JSON.parse(this.parentElement.parentElement.lastElementChild.innerText).phone;
+                    usePhone.value = useS;
+                    useST = JSON.parse(this.parentElement.parentElement.lastElementChild.innerText).pay;
+                    usePay.value = useST;
+                    useIdP.value = JSON.parse(this.parentElement.parentElement.lastElementChild.innerText)._id;
+
+                    document.removeEventListener('click', handler, true);
+                    var sureP = document.getElementsByClassName('sureP')[0];
+                    sureP.onclick = function () {
+                        $.ajax({
+                            type: "POST",
+                            url: "http://118.195.129.130:3000/order/update_order",
+                            data: {
+                                _id: useIdP.value,
+                                us: useNameP.value,
+                                phone: usePhone.value,
+                                pay: usePay.value,
+                                amount: useAccount.value,
+                            },
+                            success: function (result) {
+                                alert("修改成功");
+                                document.getElementsByClassName("reviseO")[0].style.display = "none";
+                                document.getElementsByClassName('blackBox')[0].style.display = "none";
+                                page = 1;
+                                per_page = 10;
+                                getUserInfoP();
+                            }
+                        })
+                    }
+                    var clearP=document.getElementsByClassName('clearP')[0];
+                    clearP.onclick=function(){
+                        document.getElementsByClassName("reviseO")[0].style.display = "none";
+                        document.getElementsByClassName('blackBox')[0].style.display = "none";
+            
+                    }
+
+                }
+            }
+            var deletess = document.getElementsByClassName('deletess');
+            var ds = document.getElementsByClassName('ds')[0];
+            var df = document.getElementsByClassName('df')[0];
+            var deleteBox = document.getElementsByClassName('deleteBox')[0];
+            
+
+            for (var i = 0; i < deletess.length; i++) {
+                var blackBox = document.getElementsByClassName('blackBox')[0];
+
+                deletess[i].onclick = function () {
+                    deleteBox.style.display = "";
+                    document.getElementsByClassName('blackBox')[0].style.display = "";
+                    useIdIs=JSON.parse(this.parentElement.parentElement.lastElementChild.innerText)._id
+                    ds.onclick = function () {
+                        deleteBox.style.display = "none";
+                        document.getElementsByClassName('blackBox')[0].style.display = "none";
+                        // useIdIs=JSON.parse(this.parentElement.parentElement.lastElementChild.innerText)._id
+                        $.ajax({
+                            type: "POST",
+                            url: "http://118.195.129.130:3000/order/del_order",
+                            data: {
+                                _id: useIdIs,
+                            },
+                            success: function (result) {
+                                console.log(999)
+                                alert("删除成功!");
+                                per_page=10;
+                                page=1;
+                                userAllNum();
+                                getUserInfoP();
+                    }
+                })
+            }
+                    df.onclick = function () {
+                        deleteBox.style.display = "none";
+                        document.getElementsByClassName('blackBox')[0].style.display = "none";
+                    }
+
+                }
+            }
+>>>>>>> e26c72d4e81ba35d3a59c7d164b50f60f30e7afb
         }
         nameInfoP.innerHTML +=
           "<ul class='infoSty'>" +
