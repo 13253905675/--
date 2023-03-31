@@ -466,6 +466,11 @@ li {
 .pluss {
   width: 1030px;
 }
+.eye{
+  position:relative ;
+  top:200px ;
+  right:200px ;
+}
 
 #changeF {
   width: 108px;
@@ -525,6 +530,9 @@ li {
     border: none;
     width: 100px;
     height:50px ;
+}
+button:hover{
+  cursor: pointer;
 }
 
 .clearF,.clearP,.clear{

@@ -3,6 +3,17 @@ var logon = document.getElementsByClassName("logon")[0];
 // var email=document.getElementById('userEmail').value;
 
 logon.onclick = function () {
+   
+            alert('注册成功，欢迎进入');
+            window.location.href = '../html/behind.html';
+        }
+    
+
+var text = document.getElementsByClassName("text")[0]; //获取验证码按钮
+var time = 59;
+
+// 注册单击事件
+text.onclick = function () {
     var email = document.getElementById('userEmail').value;
 
     if (email == "") {

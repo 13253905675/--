@@ -787,7 +787,7 @@ function getUserInfoF() {
               type: "POST",
               url: "http://118.195.129.130:3000/food/update",
               data: {
-                name: foodNameSpure,
+                name: foodNameSure,
                 price: foodPay.value,
                 desc: taste.value,
                 typename: typeName.value,
