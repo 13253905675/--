@@ -299,6 +299,7 @@ function getUserInfoP() {
         },
         success: function (result) {
             nameInfoP.innerHTML = "";
+            
             for (var i = 0; i < result.data.length; i++) {
                 var payCase="已支付";
                 if(result.data[i].pay==0){
@@ -306,7 +307,7 @@ function getUserInfoP() {
                 }
                 nameInfoP.innerHTML += "<ul class='infoSty'>" + "<li>" + result.data[i].us + "</li>" + "<li >" + result.data[i].amount + "</li>" +
                     "<li >" + result.data[i].phone + "</li>" + "<li >" + payCase + "</li>" + "<li >" + result.data[i].time + "</li>"
-                    + "<li>" + "<button class='revises' >修改</button>" + "<button class='deletess'>删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result.data[i]) + "</li>" + "</ul>"
+                    + "<li>" + "<button class='revises' >修改</button>" + "<button class='deletess' orderId="+JSON.stringify(result.data[i]._id)+">删除</button>" + "</li>" + "<li class='hid'>" + JSON.stringify(result.data[i]) + "</li>" + "</ul>"
             }
             for (var k = 0; k < revises.length; k++) {
                 revises[k].onclick = function () {
