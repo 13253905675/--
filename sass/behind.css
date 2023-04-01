@@ -70,7 +70,7 @@ li {
   font-size: 20px;
   list-style: none;
   top: -10px;
-  width: 145px;
+  width: 144px;
   padding: 22px 3px 20px 53px;
 }
 
@@ -266,14 +266,14 @@ li {
 }
 
 .threeli > li {
-  margin: 33px 73px;
+  margin: 35px 52px;
   outline: none;
 }
 
 .reviseBox {
   z-index: 5;
-  width: 400px;
-  height: 354px;
+  width: 420px;
+  height: 303px;
   padding-top: 8px;
   border: #42dbbc 2px solid;
   background-color: #ffffff;
@@ -285,26 +285,23 @@ li {
 .reviseF {
   z-index: 5;
   width: 505px;
-  height: 503px;
+  height: 460px;
   padding-top: 8px;
   border: #42dbbc 2px solid;
   background-color: #ffffff;
   position: absolute;
   top: 130px;
   left: 446px;
-  padding-left: 30px;
+  padding-left: 94px;
 }
 
 .flflF {
+  position: relative;
+  top: 10px;
+  left: -51px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
-
-.flflF > button {
-  width: 90px;
-  height: 33px;
-  font-size: 15px;
 }
 
 .flfl {
@@ -315,22 +312,20 @@ li {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  left: -28px;
+  position: relative;
 }
 
-.flflP > button {
-  width: 58px;
-  height: 29px;
-}
-
-.flfl > button {
-  width: 58px;
-  height: 29px;
+.foodWrong {
+  color: red;
+  font-size: 14px;
 }
 
 .reviseO {
-  padding-top: 50px;
+  padding-left: 63px;
+  padding-top: 30px;
   width: 520px;
-  height: 430px;
+  height: 388px;
   background-color: #b2ebf2;
   position: absolute;
   top: 15%;
@@ -386,13 +381,13 @@ li {
 
 .addF {
   width: 500px;
-  height: 470px;
+  height: 485px;
   background-color: #ffffff;
   border: #42dbbc solid 3px;
   position: absolute;
   top: 12%;
   left: 32%;
-  padding-top: 40px;
+  padding-top: 12px;
   z-index: 5;
 }
 
@@ -475,6 +470,12 @@ li {
   width: 1030px;
 }
 
+.eye {
+  position: relative;
+  top: 200px;
+  right: 200px;
+}
+
 #changeF {
   width: 108px;
   height: 24px;
@@ -518,4 +519,50 @@ li {
 .commonActive {
   color: #ffffff !important;
   background-color: #b8b2f2 !important;
+}
+
+.personSelf {
+  width: 264px;
+}
+
+.personSex {
+  height: 32px;
+  outline-style: none;
+  font-size: 15px;
+  text-align: center;
+}
+
+.useSex {
+  width: 210px;
+}
+
+.sureF, .sureP, .sure {
+  background-color: #2196f3;
+  color: #ffffff;
+  border: none;
+  width: 90px;
+  height: 38px;
+  font-size: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.clearF, .clearP, .clear {
+  background-color: coral;
+  color: #ffffff;
+  width: 90px;
+  height: 38px;
+  border: none;
+}
+
+.massage {
+  display: inline-block;
+}
+
+.wrong {
+  display: inline-block;
+  color: red;
+  font-size: 15px;
 }

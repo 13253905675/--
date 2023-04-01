@@ -16,15 +16,17 @@
             type="text"
             style="height: 30px; width: 250px"
           />
+          <span class="foodNameAS"></span>
         </li>
 
-        <li>
+        <li class="paySure">
           价格:
           <input
             class="foodPay"
             type="text"
             style="height: 30px; width: 250px"
-          />
+          />  <span class="message"></span>
+          
         </li>
 
         <li>
@@ -49,18 +51,20 @@
           />
         </li>
         <li>
-          id:
+          
           <input
             class="foodId"
             type="text"
-            style="height: 30px; width: 270px"
+            style="display:none"
+            
           />
         </li>
-        <li class="flflF">
-          <button class="sureF">确认</button>
-          <button class="clearF">取消</button>
-        </li>
+       
       </ul>
+      <li class="flflF">
+        <button class="sureF">确认</button>
+        <button class="clearF">取消</button>
+      </li>
     </div>
     <div class="reviseO" style="display: none">
       <ul class="threeli fiveli">
@@ -98,19 +102,18 @@
           />
         </li>
         <li>
-          id:
+          
           <input
             class="useIdP"
             type="text"
-            style="height: 30px; width: 288px"
+            style="display: none;"
           />
         </li>
-
-        <li class="flflP">
-          <button class="sureP">确认</button>
-          <button class="clearP">取消</button>
-        </li>
       </ul>
+      <li class="flflP">
+        <button class="sureP">确认</button>
+        <button class="clearP">取消</button>
+      </li>
     </div>
     <div class="reviseBox" style="display: none">
       <ul class="threeli">
@@ -158,6 +161,7 @@
           type="text"
           style="height: 30px; width: 250px"
         />
+        <span class="foodNameAS"></span>
       </div>
       <div class="Fmoney">
         价格:
@@ -325,7 +329,7 @@
           <table class="page">
             <tr>
               <td>
-                共 <span class="allThree">5</span> 条
+                共 <span class="allThree">4</span> 条
               </td>
               <td>
                 <select id="change">
@@ -387,7 +391,7 @@
               <td><button class="lastP">上一页</button></td>
               <td><span class="pageIndexP">1</span></td>
               <td><span>/</span></td>
-              <td><span class="pageAllP">2</span></td>
+              <td><span class="pageAllP"></span></td>
               <td><button class="nextP">下一页</button></td>
             </tr>
           </table>
@@ -435,7 +439,7 @@
               <td><button class="lastF">上一页</button></td>
               <td><span class="pageIndexF">1</span></td>
               <td><span>/</span></td>
-              <td><span class="pageAllF">1</span></td>
+              <td><span class="pageAllF"></span></td>
               <td><button class="nextF">下一页</button></td>
             </tr>
           </table>

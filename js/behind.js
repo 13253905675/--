@@ -82,32 +82,32 @@ function getUserInfo() {
           sure.onclick = function () {
             var indexo = useSex.selectedIndex;
             var valueo = useSex.options[indexo].value;
-            var useAgeS=useAge.value;
+            var useAgeS = useAge.value;
             console.log(useAgeS);
-            if(useAgeS<0||useAgeS>130){
-              alert("年龄输入有误，请重新输入！")
+            if (useAgeS < 0 || useAgeS > 130) {
+              alert("年龄输入有误，请重新输入！");
+            } else {
+              $.ajax({
+                type: "POST",
+                url: "http://118.195.129.130:3000/users/update_users",
+                data: {
+                  _id: useId,
+                  us: useName.value,
+                  age: useAge.value,
+                  sex: valueo,
+                },
+                success: function (result) {
+                  alert("修改成功");
+                  document.getElementsByClassName(
+                    "reviseBox"
+                  )[0].style.display = "none";
+                  document.getElementsByClassName("blackBox")[0].style.display =
+                    "none";
+                  getUserInfo();
+                },
+              });
             }
-            else{
-            $.ajax({
-              type: "POST",
-              url: "http://118.195.129.130:3000/users/update_users",
-              data: {
-                _id: useId,
-                us: useName.value,
-                age: useAge.value,
-                sex: valueo,
-              },
-              success: function (result) {
-                alert("修改成功");
-                document.getElementsByClassName("reviseBox")[0].style.display =
-                  "none";
-                document.getElementsByClassName("blackBox")[0].style.display =
-                  "none";
-                getUserInfo();
-              },
-            })
-          }
-          }
+          };
         };
       }
       var deletes = document.getElementsByClassName("deletes");
@@ -267,12 +267,12 @@ add.onclick = function () {
   document.removeEventListener("click", handler, true);
 
   tds.onclick = function () {
-   var  Email = userEmailad.value;
-    var useAgeS=document.getElementsByClassName('useAgeaad')[0].value;
-    if(useAgeS<0||useAgeS>130){
-      alert('年龄输入有误，请重新输入！');
+    var Email = userEmailad.value;
+    var useAgeS = document.getElementsByClassName("useAgeaad")[0].value;
+    if (useAgeS < 0 || useAgeS > 130) {
+      alert("年龄输入有误，请重新输入！");
     }
-    
+
     if (Email == "") {
       alert("邮箱为空，请重新输入！");
     }
@@ -281,12 +281,11 @@ add.onclick = function () {
       isok = reg.test(Email);
       if (!isok) {
         alert("邮箱格式不正确，请重新输入！");
-      } else if (isok&&useAgeS>0&&useAgeS<140) {
+      } else if (isok && useAgeS > 0 && useAgeS < 140) {
         var blackBox = document.getElementsByClassName("blackBox")[0];
         alert("添加成功");
         addn.style.display = "none";
         blackBox.style.display = "none";
-       
       }
     }
   };
@@ -301,7 +300,7 @@ var common = document.getElementsByClassName("common");
 var down = document.getElementsByClassName("down");
 down[1].style.display = "none";
 common[0].onclick = function () {
-  down[0].style.display = ""; 
+  down[0].style.display = "";
   down[1].style.display = "none";
   down[2].style.display = "none";
 
@@ -421,41 +420,42 @@ function getUserInfoP() {
           document.removeEventListener("click", handler, true);
           var sureP = document.getElementsByClassName("sureP")[0];
           sureP.onclick = function () {
-             var phoneValue= usePhone.value;
-             if (phoneValue == "") {
+            var phoneValue = usePhone.value;
+            if (phoneValue == "") {
               alert("号码为空，请重新输入！");
             }
-            if ( phoneValue!= "") {
-              var reg =/^(?:(?:\+|00)86)?1[3-9]\d{9}$/;
+            if (phoneValue != "") {
+              var reg = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/;
               isok = reg.test(phoneValue);
               if (!isok) {
                 alert("号码格式不正确，请重新输入！");
-              } 
-              else if (isok) {
-            $.ajax({
-              type: "POST",
-              url: "http://118.195.129.130:3000/order/update_order",
-              data: {
-                _id: useIdP.value,
-                us: useNameP.value,
-                phone: usePhone.value,
-                pay: usePay.value,
-                amount: useAccount.value,
-              },
-              success: function (result) {
-                alert("修改成功");
-                document.getElementsByClassName("reviseO")[0].style.display =
-                  "none";
-                document.getElementsByClassName("blackBox")[0].style.display =
-                  "none";
-                page = 1;
-                per_page = 10;
-                getUserInfoP();
-              },
-            });
-          }
-        }
-      } 
+              } else if (isok) {
+                $.ajax({
+                  type: "POST",
+                  url: "http://118.195.129.130:3000/order/update_order",
+                  data: {
+                    _id: useIdP.value,
+                    us: useNameP.value,
+                    phone: usePhone.value,
+                    pay: usePay.value,
+                    amount: useAccount.value,
+                  },
+                  success: function (result) {
+                    alert("修改成功");
+                    document.getElementsByClassName(
+                      "reviseO"
+                    )[0].style.display = "none";
+                    document.getElementsByClassName(
+                      "blackBox"
+                    )[0].style.display = "none";
+                    page = 1;
+                    per_page = 10;
+                    getUserInfoP();
+                  },
+                });
+              }
+            }
+          };
           var clearP = document.getElementsByClassName("clearP")[0];
           clearP.onclick = function () {
             document.getElementsByClassName("reviseO")[0].style.display =
@@ -521,13 +521,15 @@ function getAllIndexO() {
     data: {},
     success: function (result) {
       allIndexOs = result.pages;
+      pageAllP.innerText = Math.ceil(allIndexOs / 10);
     },
   });
 }
 getAllIndexO();
-var changeP = document.getElementById("changeP");
+  var changeP = document.getElementById("changeP");
 changeP.onclick = function () {
   page = 1;
+
   var indexO = changeP.selectedIndex;
   var valueO = changeP.options[indexO].value;
   if (valueO != per_page) {
@@ -572,53 +574,51 @@ oAdd.onclick = function () {
   var blackBox = document.getElementsByClassName("blackBox")[0];
   addO.style.display = "";
   blackBox.style.display = "";
-}
-  dsO.onclick = function () {
-   var phoneNum=phoneOAd.value ;
-    if (phoneNum == "") {
-        alert("号码为空，请重新输入！");
-      }
-      if ( phoneNum!= "") {
-        var reg =/^(?:(?:\+|00)86)?1[3-9]\d{9}$/;
-        isok = reg.test(phoneNum);
-        if (!isok) {
-          alert("号码格式不正确，请重新输入！");
-        } 
-        else if (isok) {
-           
-    var blackBox = document.getElementsByClassName("blackBox")[0];
+};
+dsO.onclick = function () {
+  var phoneNum = phoneOAd.value;
+  if (phoneNum == "") {
+    alert("号码为空，请重新输入！");
+  }
+  if (phoneNum != "") {
+    var reg = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/;
+    isok = reg.test(phoneNum);
+    if (!isok) {
+      alert("号码格式不正确，请重新输入！");
+    } else if (isok) {
+      var blackBox = document.getElementsByClassName("blackBox")[0];
 
-    addO.style.display = "none";
-    blackBox.style.display = "none";
-    $.ajax({
-      type: "POST",
-      url: "http://118.195.129.130:3000/order/add_order",
-      data: {
-        us: nameOAd.value,
-        amount: amountOAd.value,
-        phone: phoneOAd.value,
-        pay: payOAd.value,
-      },
-      success: function (result) {
-        alert("添加成功");
-        nameOAd.value="";
-        amountOAd.value="";
-        phoneOAd.value="";
-        payOAd.value="";
-        page = 1;
-        per_page = 10;
-        userAllNum();
-        getUserInfoP();
-      },
-    });
+      addO.style.display = "none";
+      blackBox.style.display = "none";
+      $.ajax({
+        type: "POST",
+        url: "http://118.195.129.130:3000/order/add_order",
+        data: {
+          us: nameOAd.value,
+          amount: amountOAd.value,
+          phone: phoneOAd.value,
+          pay: payOAd.value,
+        },
+        success: function (result) {
+          alert("添加成功");
+          nameOAd.value = "";
+          amountOAd.value = "";
+          phoneOAd.value = "";
+          payOAd.value = "";
+          page = 1;
+          per_page = 10;
+          userAllNum();
+          getUserInfoP();
+        },
+      });
+    }
   }
-}
-  }
-  dfO.onclick = function () {
-    var blackBox = document.getElementsByClassName("blackBox")[0];
-    addO.style.display = "none";
-    blackBox.style.display = "none";
-  }
+};
+dfO.onclick = function () {
+  var blackBox = document.getElementsByClassName("blackBox")[0];
+  addO.style.display = "none";
+  blackBox.style.display = "none";
+};
 
 getUserInfoP();
 var pageP = document.getElementsByClassName("pageP")[0];
@@ -641,36 +641,36 @@ findO.onclick = function () {
     success: function (result) {
       pageP.style.display = "none";
       console.log(result);
-      result = result.data;
+      // result = result.data;
       nameInfoP.innerHTML = "";
-      for (var j = 0; j < result.length; j++) {
+      for (var j = 0; j < result.data.length; j++) {
         var payCase = "已支付";
-        if (result.data[i].pay == 0) {
+        if (result.data[j].pay == 0) {
           payCase = "未支付";
         }
         nameInfoP.innerHTML +=
           "<ul class='infoSty'>" +
           "<li>" +
-          result[j].us +
+          result.data[j].us +
           "</li>" +
           "<li >" +
-          result[j].amount +
+          result.data[j].amount +
           "</li>" +
           "<li >" +
-          result[j].phone +
+          result.data[j].phone +
           "</li>" +
           "<li >" +
           payCase +
           "</li>" +
           "<li >" +
-          result[j]._id +
+          result.data[j]._id +
           "</li>" +
           "<li>" +
           "<button class='revises' >修改</button>" +
           "<button class='deletess'>删除</button>" +
           "</li>" +
           "<li class='hid'>" +
-          JSON.stringify(result[j]) +
+          JSON.stringify(result.data[j]) +
           "</li>" +
           "</ul>";
       }
@@ -708,7 +708,6 @@ var lastF = document.getElementsByClassName("lastF")[0];
 var nextF = document.getElementsByClassName("nextF")[0];
 
 var nameInfoF = document.getElementById("nameInfoF");
-
 function getUserInfoF() {
   console.log(555);
   $.ajax({
@@ -757,6 +756,8 @@ function getUserInfoF() {
           var typeName = document.getElementsByClassName("typeName")[0];
           var typeId = document.getElementsByClassName("typeId")[0];
           var foodId = document.getElementsByClassName("foodId")[0];
+          var message = document.querySelector(".message");
+          console.log(message, "000000000");
           document.getElementsByClassName("reviseF")[0].style.display = "";
           document.getElementsByClassName("blackBox")[0].style.display = "";
           document.addEventListener("click", handler, true);
@@ -780,9 +781,22 @@ function getUserInfoF() {
           foodId.value = foods._id;
           document.removeEventListener("click", handler, true);
           var sureF = document.getElementsByClassName("sureF")[0];
+         
           sureF.onclick = function () {
-            var foodNameSure=foodName.value;
-            foodNameSure=judgeStr(foodNameSure);
+            if (foodPay.value < 0) {
+              message.classList.add("wrong");
+              message.innerHTML = "请输入正数！";
+              return;
+            }
+            var foodNameSure = foodName.value;
+            foodNameSure = judgeStr(foodNameSure);
+            var foodNameAS=document.getElementsByClassName('foodNameAS')[0];
+            if(foodNameSure==false)
+            {
+              foodNameAS.classList.add("foodWrong");
+              foodNameAS.innerHTML = "食物名格式错误";
+              return;
+            }
             $.ajax({
               type: "POST",
               url: "http://118.195.129.130:3000/food/update",
@@ -795,6 +809,7 @@ function getUserInfoF() {
                 _id: foodId.value,
               },
               success: function (result) {
+                message.innerHTML = "";
                 alert("修改成功");
                 document.getElementsByClassName("reviseF")[0].style.display =
                   "none";
@@ -881,8 +896,8 @@ addFB.onclick = function () {
 
   fts.onclick = function () {
     var blackBox = document.getElementsByClassName("blackBox")[0];
-     var foodNameS=foodNameA.value;
-    foodNameS=judgeStr(foodNameS);
+    var foodNameS = foodNameA.value;
+    foodNameS = judgeStr(foodNameS);
     alert("添加成功");
     addF.style.display = "none";
     blackBox.style.display = "none";
@@ -907,13 +922,13 @@ addFB.onclick = function () {
         getUserInfoF();
       },
     });
-  }
   };
-  ftd.onclick = function () {
-    var blackBox = document.getElementsByClassName("blackBox")[0];
-    addF.style.display = "none";
-    blackBox.style.display = "none";
-  };
+};
+ftd.onclick = function () {
+  var blackBox = document.getElementsByClassName("blackBox")[0];
+  addF.style.display = "none";
+  blackBox.style.display = "none";
+};
 
 foodNum();
 getUserInfoF();
@@ -978,6 +993,7 @@ function getAllIndexF() {
     success: function (result) {
       console.log(result);
       allIndexsF = result.pages;
+      pageAllF.innerText = Math.ceil(allIndexsF/ 10);
     },
   });
 }
@@ -1020,14 +1036,13 @@ lastF.onclick = function () {
     return;
   }
 };
-var bye=document.getElementsByClassName("bye")[0];
-bye.onclick=function(){
-  window.location.href = '../html/login.html';
-}
+var bye = document.getElementsByClassName("bye")[0];
+bye.onclick = function () {
+  window.location.href = "../html/login.html";
+};
 function judgeStr(str) {
   if (str.replace(/(^\s*)|(\s*$)/g, "") == "") {
-      return false;
+    return false;
   }
-  return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
-

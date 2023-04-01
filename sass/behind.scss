@@ -268,7 +268,7 @@ li {
 }
 
 .threeli > li {
-  margin: 35px 84px;
+  margin: 35px 52px;
   outline: none;
 }
 
@@ -287,27 +287,30 @@ li {
 .reviseF {
   z-index: 5;
   width: 505px;
-  height: 503px;
+  height: 460px;
   padding-top: 8px;
   border: #42dbbc 2px solid;
   background-color: #ffffff;
   position: absolute;
   top: 130px;
   left: 446px;
-  padding-left: 30px;
+  padding-left: 94px;
 }
 
 .flflF {
+  position: relative;
+  top: 10px;
+  left: -51px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.flflF > button {
-  width: 90px;
-  height: 33px;
-  font-size: 15px;
-}
+// .flflF > button {
+//   width: 90px;
+//   height: 33px;
+//   font-size: 15px;
+// }
 
 .flfl {
   text-align: center;
@@ -317,22 +320,29 @@ li {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  left: -28px;
+    position: relative;
+}
+.foodWrong{
+    color: red;
+    font-size: 14px;
 }
 
-.flflP > button {
-  width: 58px;
-  height: 29px;
-}
+// .flflP > button {
+//   width: 58px;
+//   height: 29px;
+// }
 
-.flfl > button {
-  width: 66px;
-  height: 35px;
-}
+// .flfl > button {
+//   width: 66px;
+//   height: 35px;
+// }
 
 .reviseO {
+  padding-left: 63px;
   padding-top: 30px;
   width: 520px;
-  height: 430px;
+  height: 388px;
   background-color: #b2ebf2;
   position: absolute;
   top: 15%;
@@ -528,8 +538,9 @@ li {
     background-color: #2196f3;
     color: #ffffff;
     border: none;
-    width: 100px;
-    height:50px ;
+    width: 90px;
+    height:38px ;
+    font-size: 15px;
 }
 button:hover{
   cursor: pointer;
@@ -538,7 +549,20 @@ button:hover{
 .clearF,.clearP,.clear{
   background-color: coral;
   color: #ffffff;
-  width: 100px;
-  height:50px ;
+  width: 90px;
+  height:38px ;
   border: none;
 }
+.massage{
+  display: inline-block;
+  
+  
+}
+.wrong{
+  display: inline-block;
+  color: red;
+  
+  font-size: 15px;
+}
+
+

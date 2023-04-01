@@ -4,7 +4,6 @@ var key = document.getElementById("userPassword");
 var send = document.querySelector(".send");
 var firstLogon = document.getElementsByClassName("firstLogon")[0];
 var eye = document.getElementsByClassName("eye")[0];
-console.log(send);
 var flag = 0;
 eye.onclick = function () {
   if (flag == 0) {
